@@ -99,7 +99,7 @@ void Game::ComposeFrame()
 		g_mobile = 255;
 		b_mobile = 255;
 	}
-
+	
 	gfx.PutPixel(-5 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
 	gfx.PutPixel(-5 + x_mobile, -4 + y_mobile, r_mobile, g_mobile, b_mobile);
 	gfx.PutPixel(-5 + x_mobile, -3 + y_mobile, r_mobile, g_mobile, b_mobile);
