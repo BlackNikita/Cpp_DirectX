@@ -42,18 +42,10 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	int x = 400;
-	int y = 300;
-	int vx = 0;
-	int vy = 0;
-	int r = 225;
-	int xs;
-	int ys;
-	bool bIsShapeChanged = false;
-	bool bIsColorChanged = false;
-	bool bInhibitUp = false;
-	bool bInhibitRight = false;
-	bool bInhibitDown = false;
-	bool bInhibitLeft = false;
+	int x_fixed = 300;
+	int y_fixed = 300;
+	int x_mobile = 400;
+	int y_mobile = 400;
+	bool colliding = false;
 	/********************************/
 };
