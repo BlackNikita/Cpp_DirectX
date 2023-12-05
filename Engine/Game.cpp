@@ -56,8 +56,22 @@ void Game::UpdateModel()
 		x_mobile += 1;
 	}
 
-	
-	
+	const int left_mobile = x_mobile - 5;
+	const int right_mobile = x_mobile + 5;
+	const int bottom_mobile = y_mobile + 5;
+	const int top_mobile = y_mobile - 5;
+
+	const int left_fixed = x_fixed - 5;
+	const int right_fixed = x_fixed + 5;
+	const int bottom_fixed = y_fixed + 5;
+	const int top_fixed = y_fixed - 5;
+
+	if ((left_mobile <= right_fixed) && (right_mobile >= left_fixed) && (top_mobile <= bottom_fixed) && (bottom_mobile >= top_fixed)) {
+		colliding = true;
+	}
+	else {
+		colliding = false;
+	}
 }
 
 void Game::ComposeFrame()
