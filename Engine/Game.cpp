@@ -39,6 +39,7 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	
+
 	
 	if (wnd.kbd.KeyIsPressed(VK_UP)) {
 		y_mobile -= 1;
@@ -55,15 +56,22 @@ void Game::UpdateModel()
 	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) {
 		x_mobile += 1;
 	}
-
-	colliding = OverlapTest(x_fixed, y_fixed, x_mobile, y_mobile);
+	x_mobile = ClampScreenX(x_mobile);
+	y_mobile = ClampScreenY(y_mobile);
+	
+	colliding = OverlapTest(x_fixed0, y_fixed0, x_mobile, y_mobile) || OverlapTest(x_fixed1, y_fixed1, x_mobile, y_mobile)
+	|| OverlapTest(x_fixed2, y_fixed2, x_mobile, y_mobile) || OverlapTest(x_fixed3, y_fixed3, x_mobile, y_mobile);
 }
 
 void Game::ComposeFrame()
 {
-	DrawBox(x_fixed, y_fixed, 255, 100, 30);
 
+	//some function for not allowing a box to go off screen should be added here
 	
+	DrawBox(x_fixed0, y_fixed0, 255, 100, 30);
+    DrawBox(x_fixed1, y_fixed1, 255, 100, 30);
+	DrawBox(x_fixed2, y_fixed2, 255, 100, 30);
+	DrawBox(x_fixed3, y_fixed3, 255, 100, 30);
 
 	if (colliding) {
 		DrawBox(x_mobile, y_mobile, 50, 200, 150);
@@ -74,7 +82,6 @@ void Game::ComposeFrame()
 }
 
 void Game::DrawBox( int x, int y, int r, int g, int b ) {
-	
 
 
 	gfx.PutPixel(-5 + x, -5 + y, r, g, b);
@@ -111,8 +118,46 @@ bool Game::OverlapTest(int box0x, int box0y, int box1x, int box1y)
 	const int right_box1 = box1x + 5;
 	const int bottom_box1 = box1y + 5;
 	const int top_box1 = box1y - 5;
+	
 
+	
 	return ((left_box0 <= right_box1) && (right_box0 >= left_box1) && (top_box0 <= bottom_box1) && (bottom_box0 >= top_box1));
 	
 	
+}
+
+int Game::ClampScreenX(int x)
+{
+	const int left = x - 5;
+	const int right = x + 5;
+
+	if(left < 0)
+	{
+		return 5;
+		
+	} else if (right >= gfx.ScreenWidth)
+	{
+		return gfx.ScreenWidth - 6;
+	} else
+	{
+		return x;
+	}
+}
+
+int Game::ClampScreenY(int y)
+{
+	const int top = y - 5;
+	const int bottom = y + 5;
+
+	if(top < 0)
+	{
+		return 5;
+	
+	} else if (bottom >= gfx.ScreenHeight)
+	{
+		return gfx.ScreenHeight - 6;
+	} else
+	{
+		return y;
+	}
 }
