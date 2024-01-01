@@ -43,6 +43,10 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	int xPos = 300;
+	int yPos = 133;
+	int width = 80;
+	int height = 20;
 	
 	/********************************/
 };

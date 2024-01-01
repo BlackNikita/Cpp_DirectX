@@ -26,6 +26,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd )
+    
 {
 	
 }
@@ -40,6 +41,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	//Here I can change values of the rectangle like position and size.
 	
 }
 
@@ -48,6 +50,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+      
 	
 }
 
