@@ -36,16 +36,17 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	int x_fixed = 300;
-	int y_fixed = 300;
-	int x_mobile = 400;
-	int y_mobile = 400;
-	bool colliding = false;
+	int xPos = 300;
+	int yPos = 133;
+	int width = 80;
+	int height = 20;
+	
 	/********************************/
 };
