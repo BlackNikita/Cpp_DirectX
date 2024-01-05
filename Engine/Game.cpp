@@ -22,10 +22,11 @@
 #include "Game.h"
 
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd )
+	//wnd( wnd ),
+	gfx( wnd ),
+    rect(gfx)
     
 {
 	
@@ -50,7 +51,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-      
+      rect.DrawRectangle(100, 100, 60, 50, 110, 200, 45);
 	
 }
 

@@ -23,10 +23,11 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-
+#include "Rectangle.h"
 class Game
 {
 public:
+
 	Game( class MainWindow& wnd );
 	Game( const Game& ) = delete;
 	Game& operator=( const Game& ) = delete;
@@ -39,7 +40,8 @@ private:
 	
 	/********************************/
 private:
-	MainWindow& wnd;
+	//Notice that if you remove '&', you'll get error about deleted constructor or smth. BTW, it's not even being used.
+	//MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
@@ -47,6 +49,6 @@ private:
 	int yPos = 133;
 	int width = 80;
 	int height = 20;
-	
+	MyRectangle rect;
 	/********************************/
 };
