@@ -24,9 +24,9 @@
 
 Game::Game(MainWindow& wnd)
 	:
-	//wnd( wnd ),
+	wnd( wnd ),
 	gfx( wnd ),
-    rect(gfx)
+    rect(gfx, wnd)
     
 {
 	
@@ -42,7 +42,6 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	//Here I can change values of the rectangle like position and size.
 	
 }
 
@@ -51,8 +50,8 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-      rect.DrawRectangle(100, 100, 60, 50, 110, 200, 45);
-	
+      rect.DrawRectangle(xPos, yPos, width, height, 190, 177, 100);
+	rect.DrawRectangle(300, 122, 20, 20, 255, 255, 255);
 }
 
 

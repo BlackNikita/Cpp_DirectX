@@ -41,7 +41,7 @@ private:
 	/********************************/
 private:
 	//Notice that if you remove '&', you'll get error about deleted constructor or smth. BTW, it's not even being used.
-	//MainWindow& wnd;
+	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
